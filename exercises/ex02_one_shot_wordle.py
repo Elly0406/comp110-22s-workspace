@@ -13,7 +13,7 @@ YELLOW_BOX: str = "\U0001F7E8"
 
 # This is the while loop to check if the guess has correct length
 while len(guess) != length:
-    guess: str = input(f"That was not { length } letters! Try again: ")
+    guess = input(f"That was not { length } letters! Try again: ")
 
 # This is the while loop to check each index one by one 
 while index < length:
