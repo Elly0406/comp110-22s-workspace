@@ -25,7 +25,7 @@ def main() -> None:
     
 
 def contains_char(word: str, character: str) -> bool:
-    """Return corresponding boolean if character is found in word or not"""
+    """Return corresponding boolean if character is found in word or not."""
     assert len(character) == 1
     index: int = 0
     exist: bool = False
@@ -38,15 +38,18 @@ def contains_char(word: str, character: str) -> bool:
 
 
 def emojified(guess: str, secret: str) -> str:
-    """Return the corresponding color to each character"""
+    """Return the corresponding color to each character."""
     assert len(guess) == len(secret)
     WHITE_BOX: str = "\U00002B1C"
     YELLOW_BOX: str = "\U0001F7E8"
+    GREEN_BOX: str = "\U0001F7E9"
     color_result: str = ""
     i: int = 0
     # while loop to check each character's color in guess word
     while i < len(secret):
-        if contains_char(secret, guess[i]) is True:
+        if guess[i] == secret[i]:
+            color_result += GREEN_BOX
+        elif contains_char(secret, guess[i]) is True:
             color_result += YELLOW_BOX
         else:
             color_result += WHITE_BOX
@@ -55,7 +58,7 @@ def emojified(guess: str, secret: str) -> str:
 
 
 def input_guess(length: int) -> str:
-    """Check if user input correct length. return guess with correct length"""
+    """Check if user input correct length. return guess with correct length."""
     answer: str = input(f"Enter a {length} character word: ")
     while len(answer) != length:
         answer = input(f"That wasn't {length} chars! Try again: ")
